@@ -1,0 +1,37 @@
+#CardImg{
+
+   width:60px; 
+ 
+}
+
+.CardContainer{
+    margin:15px;
+    display: flex;
+   padding:5px;
+  
+    border:1px solid black;
+    border-radius:10px;
+    width:80vw;
+    height:auto;
+
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  
+}
+
+#starImg{
+    position:absolute;
+    width:17px;
+    height:17px;
+    right:0%;
+    top:0%;
+    cursor:pointer;
+}
+
+
+.CardRigthContainer{
+    margin-left:10px;
+    position:relative;
+    width:100%;
+}
+
+

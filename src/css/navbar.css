@@ -1,0 +1,13 @@
+.NavBarList{
+    text-decoration: none;
+    margin: 7px;
+    font-weight: 700; 
+ 
+}
+
+#NavTitle{
+    text-decoration: none;
+    font-family: Cursive;
+    color: black;
+    font-weight: 900; 
+}
