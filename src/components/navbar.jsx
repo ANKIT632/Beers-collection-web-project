@@ -26,6 +26,11 @@ function NavBar() {
     
   }
 
+  const handlesideBarclick=()=>{
+    setSearchValue('');
+    dispatch({ type: 'IntializationData', payload:true});
+  }
+
 
   const handleSearchValue=(e)=>{
     e.preventDefault();
@@ -70,7 +75,7 @@ function NavBar() {
                   <Button variant="outline-success" onClick={(e)=>HandleSearchData(e)}>Search</Button>
                 </Form>
 
-                  <NavLink className='NavBarList' to="/" >Home</NavLink>
+                  <NavLink className='NavBarList' to="/" onClick={handlesideBarclick} >Home</NavLink>
                   <NavLink  className='NavBarList' to="/FavCollection">Favourite Beers</NavLink>
               
               

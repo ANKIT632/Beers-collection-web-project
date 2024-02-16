@@ -4,6 +4,12 @@
  
 }
 
+#CardTitleName{
+  width:95%;
+  font-family:'cursive';
+  font-weight: bold;
+}
+
 .CardContainer{
     margin:15px;
     display: flex;

@@ -38,7 +38,7 @@ function card({data}) {
 
      <div className='CardRigthContainer'>
 
-      <h5>
+      <h5 id='CardTitleName'>
         {data.name}
       </h5>
 
