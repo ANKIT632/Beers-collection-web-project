@@ -42,7 +42,7 @@ function card({data}) {
         {data.name}
       </h5>
 
-      <p>{data.description}</p>
+      <p style={{fontFamily:'serif'}}>{data.description}</p>
        <h6>Attution-level : {data.attenuation_level}</h6>
       <h6>Fisrt Brewed : {data?.first_brewed}</h6>
       {localStorage.getItem(data.id)?<img  id='starImg' src={star} onClick={HandleremoveFavList}/>:<img  id='starImg' src={EmptyStar} onClick={HandleAddFavList}/>

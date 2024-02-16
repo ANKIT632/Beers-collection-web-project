@@ -2,7 +2,7 @@
 const intialize = {
   data: [],
   searchArg: '',
-  page: 1,
+  page: 0,
   hasMoreData: true,
   favDataLength: 0,
 

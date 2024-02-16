@@ -12,22 +12,24 @@ import '../css/navbar.css';
 
 function NavBar() {
 
+
+
   const dispatch=useDispatch();
   const navigate = useNavigate();
 
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchValue, setSearchValue] = useState('');
 
-  const HandleSearcgData=(e)=>{
+  const HandleSearchData=(e)=>{
    console.log(e);
     navigate('/');
-     dispatch({ type: 'IntializationSearchData', payload:searchTerm.trim()});
+     dispatch({ type: 'IntializationSearchData', payload:searchValue.trim()});
     
   }
 
 
   const handleSearchValue=(e)=>{
     e.preventDefault();
-       setSearchTerm(e.target.value);
+       setSearchValue(e.target.value);
 
        if(e.target.value===''){
         dispatch({ type: 'IntializationData', payload:true});
@@ -41,34 +43,35 @@ function NavBar() {
         <Navbar key={'sm'} expand={'sm'} className="bg-body-tertiary mb-3">
           <Container fluid>
             <NavLink to="/" id='NavTitle'>Beers</NavLink>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`} />
+           { <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`} />}
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-sm`}
               aria-labelledby={`offcanvasNavbarLabel-expand-sm`}
               placement="end"
+              
             >
-              <Offcanvas.Header closeButton>
+           <Offcanvas.Header closeButton >
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-sm`}>
                   
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
+            <Nav className="justify-content-end flex-grow-1 pe-3">
 
-                <Form className="d-flex">
+              <Form className="d-flex">
                   <Form.Control
                     type="search"
                     placeholder="Search"
                     className="me-2"
                     aria-label="Search"
-                    value={searchTerm}
+                    value={searchValue}
                     onChange={(e)=>handleSearchValue(e)}
                   />
-                  <Button variant="outline-success" onClick={(e)=>HandleSearcgData(e)}>Search</Button>
+                  <Button variant="outline-success" onClick={(e)=>HandleSearchData(e)}>Search</Button>
                 </Form>
 
-                  <NavLink className='NavBarList' to="/">Home</NavLink>
-                  <NavLink  className='NavBarList' to="/FavCollection">Favotite</NavLink>
+                  <NavLink className='NavBarList' to="/" >Home</NavLink>
+                  <NavLink  className='NavBarList' to="/FavCollection">Favourite Beers</NavLink>
               
               
                 </Nav>

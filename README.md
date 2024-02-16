@@ -25,3 +25,21 @@ Follow these steps to set up the project:
 
 4. Start the development server
   - npm run dev
+
+# project Url
+https://beers1.netlify.app/
+
+# about Project and use term.
+- components folder : are contains component those are use in page , such as cars.jsx and navbar.jsx.
+
+- pages folder: The pages folder contains different pages of the application, such as favouriteCollection.jsx and home.jsx.
+
+- State Management: The project uses Redux and redux-thunk for state management. The action and reducer folders contain the action creators and reducers for the Redux store.
+
+-  css folder(styling) : contain nessessory css file and use bootsrap.
+
+- and other folder such as icons and gif etc are use .
+
+# main features
+- infinite loading.
+- locally store user fav data.
