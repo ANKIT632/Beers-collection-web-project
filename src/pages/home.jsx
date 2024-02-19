@@ -18,26 +18,43 @@ function home() {
   let page = useSelector((state) => state.page);
 
 
-
-
+ 
 
 
   const dispatch = useDispatch();
 
+
   useEffect(() => {
     if (searchArg === '')
-      dispatch({ type: 'IntializationData', payload: true });
+     { dispatch({ type: 'IntializationData', payload: true });
+
+     dispatch(getData(1));
+  }
+
+  
+    
   }, []);
 
 
   useEffect(() => {
-    if (searchArg === '')
-      dispatch(getData(page));
+  
+  }, [page]);
 
-    else {
-      dispatch(getSearchData(searchArg, page));
-    }
-  }, [page, searchArg]);
+
+  const fetchMoreData = () => {
+   
+ 
+    if (searchArg.length>0)
+
+   {   
+    console.log('page no', page);
+    dispatch(getSearchData(searchArg, page+1));} 
+  
+  else {
+    dispatch(getData(page+1));
+  }
+  };
+
 
 
 
@@ -47,18 +64,13 @@ function home() {
 
     <InfiniteScroll
       dataLength={data.length} // take actual data length .
-      next={() => page}
-      hasMore={data.length <= page * 10 ? false : hasMoreData}
+      next={fetchMoreData}
+      hasMore={ data.length<page*10?false:hasMoreData}
 
       loader={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '1.5rem' }}>
         <img style={{ height: "3rem" }} src={loader} alt='loading...' />
       </div>}
 
-      endMessage={
-        <p style={{ textAlign: 'center', color: "skyblue" }}>
-          {data.length ? <b>You have seen it all</b> : <></>}
-        </p>
-      }
       className='homeContainer'
 
     >

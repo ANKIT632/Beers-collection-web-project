@@ -7,29 +7,30 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';  
-import { useNavigate } from 'react-router-dom'; 
 import '../css/navbar.css';
+import { getData,getSearchData} from '../action/actions';
 
 function NavBar() {
 
 
 
   const dispatch=useDispatch();
-  const navigate = useNavigate();
+  
+
+ 
 
   const [searchValue, setSearchValue] = useState('');
 
-  const HandleSearchData=(e)=>{
-   console.log(e);
-    navigate('/');
+  const HandleSearchData=()=>{
+
+   if(searchValue.trim()){
+
      dispatch({ type: 'IntializationSearchData', payload:searchValue.trim()});
+     dispatch(getSearchData(searchValue.trim(), 1));
+   }
     
   }
 
-  const handlesideBarclick=()=>{
-    setSearchValue('');
-    dispatch({ type: 'IntializationData', payload:true});
-  }
 
 
   const handleSearchValue=(e)=>{
@@ -38,6 +39,7 @@ function NavBar() {
 
        if(e.target.value===''){
         dispatch({ type: 'IntializationData', payload:true});
+        dispatch(getData(1));
        }
     
   }
@@ -72,10 +74,10 @@ function NavBar() {
                     value={searchValue}
                     onChange={(e)=>handleSearchValue(e)}
                   />
-                  <Button variant="outline-success" onClick={(e)=>HandleSearchData(e)}>Search</Button>
+                  <Button variant="outline-success" onClick={(e)=>HandleSearchData(e)}>Go</Button>
                 </Form>
 
-                  <NavLink className='NavBarList' to="/" onClick={handlesideBarclick} >Home</NavLink>
+                  <NavLink className='NavBarList' to="/"  >Home</NavLink>
                   <NavLink  className='NavBarList' to="/FavCollection">Favourite Beers</NavLink>
               
               
