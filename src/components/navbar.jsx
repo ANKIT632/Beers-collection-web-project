@@ -6,25 +6,21 @@ import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';  
+import { NavLink ,useNavigate} from 'react-router-dom';  
 import '../css/navbar.css';
 import { getData,getSearchData} from '../action/actions';
 
 function NavBar() {
 
-
-
   const dispatch=useDispatch();
-  
-
- 
+  const navigate=useNavigate();
 
   const [searchValue, setSearchValue] = useState('');
 
   const HandleSearchData=()=>{
 
    if(searchValue.trim()){
-
+     navigate('/');
      dispatch({ type: 'IntializationSearchData', payload:searchValue.trim()});
      dispatch(getSearchData(searchValue.trim(), 1));
    }
